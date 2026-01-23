@@ -58,9 +58,9 @@ LIB_FLAGS           := __CONF_FOSC=36864000UL \
 make clean; make
 ```
 
-
-
 # PlatformIO Quick Start
+
+(The support for PlatformIO is deprecated, please use SDCC Makefile instead.)
 
 1. Clone this repository to local file system
 ```bash
@@ -97,18 +97,30 @@ build_flags =
 ```
 then it's ready to go.
 
-## VS Code Syntax Problem
+# VS Code Syntax Problem
 
-VS Code doesn't support some of SDCC syntax for Intel 8051 ([issue 7146](https://github.com/microsoft/vscode-cpptools/issues/7146)), if you want to eliminate syntax errors in code editor, add a separate env for code editing and add `__SDCC_SYNTAX_FIX` in build_flags:
-```
-build_flags =
-    -D__SDCC_SYNTAX_FIX
-    -D__CONF_FOSC=36864000UL
-    -D__CONF_MCU_MODEL=MCU_MODEL_STC8H3K32S2
-    ...
-```
-This special env is for code editing only, building and uploading should use the normal env. 
+VS Code doesn't fully support SDCC syntax for Intel 8051 ([issue 7146](https://github.com/microsoft/vscode-cpptools/issues/7146)). To eliminate syntax errors in code editor, please add the following configurations in .vscode/c_cpp_properties.json
 
+- add `"__SDCC_SYNTAX_FIX"` to `defines`
+- add `"[sdcc path]/share/sdcc/include/**"` to `includePath`
+
+e.g.
+```
+{
+    "configurations": [
+        {
+            "defines": [
+                "__SDCC_SYNTAX_FIX"
+            ],
+            "includePath": [
+                ...
+                "/opt/sdcc/sdcc-4.3.0/share/sdcc/include/**"
+            ],
+        ...
+        }
+    ]
+}
+```
 
 # Keil C51 Quick Start
 

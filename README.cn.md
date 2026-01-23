@@ -62,6 +62,8 @@ make clean; make
 
 # PlatformIO 快速上手
 
+(对PlatformIO的支持已废弃, 请使用SDCC Makefile)
+
 1. 将代码仓库克隆到本地目录
 ```bash
 # GitHub
@@ -96,17 +98,30 @@ build_flags =
 #include "fw_hal.h"
 ```
 
-## VS Code 代码高亮错误
+# VS Code 代码高亮错误
 
-VS Code 并不完全支持 SDCC 的 Intel 8051 语法 ([issue 7146](https://github.com/microsoft/vscode-cpptools/issues/7146)), 如果您需要在代码编辑中消除错误提示, 需要增加一个env, 并在 build_flags 中添加 `__SDCC_SYNTAX_FIX`:
+VS Code 并不完全支持 SDCC 的 Intel 8051 语法 ([issue 7146](https://github.com/microsoft/vscode-cpptools/issues/7146)), 如果您需要在代码编辑中消除错误提示, 需要在 .vscode/c_cpp_properties.json 中增加如下配置
+
+- `defines` 中添加 `"__SDCC_SYNTAX_FIX"`
+- `includePath` 中添加 `"[sdcc path]/share/sdcc/include/**"`
+
+示例
 ```
-build_flags =
-    -D__SDCC_SYNTAX_FIX
-    -D__CONF_FOSC=36864000UL
-    -D__CONF_MCU_MODEL=MCU_MODEL_STC8H3K32S2
-    ...
+{
+    "configurations": [
+        {
+            "defines": [
+                "__SDCC_SYNTAX_FIX"
+            ],
+            "includePath": [
+                ...
+                "/opt/sdcc/sdcc-4.3.0/share/sdcc/include/**"
+            ],
+        ...
+        }
+    ]
+}
 ```
-这个特殊的env仅用于代码编辑, 编译和上载依然需要使用正常的env.
 
 
 # Keil C51 快速上手
