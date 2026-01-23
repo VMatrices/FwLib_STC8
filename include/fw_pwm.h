@@ -481,32 +481,32 @@ typedef enum
 {
     PWMB_PWM5_AlterPort_P20 = 0x00,
     PWMB_PWM5_AlterPort_P17 = 0x01,
-    PWMB_PWM5_AlterPort_P00 = 0x10,
-    PWMB_PWM5_AlterPort_P74 = 0x11,
+    PWMB_PWM5_AlterPort_P00 = 0x02,
+    PWMB_PWM5_AlterPort_P74 = 0x03,
 } PWMB_PWM5_AlterPort_t;
 
 typedef enum
 {
     PWMB_PWM6_AlterPort_P21 = 0x00,
     PWMB_PWM6_AlterPort_P54 = 0x01,
-    PWMB_PWM6_AlterPort_P01 = 0x10,
-    PWMB_PWM6_AlterPort_P75 = 0x11,
+    PWMB_PWM6_AlterPort_P01 = 0x02,
+    PWMB_PWM6_AlterPort_P75 = 0x03,
 } PWMB_PWM6_AlterPort_t;
 
 typedef enum
 {
     PWMB_PWM7_AlterPort_P22 = 0x00,
     PWMB_PWM7_AlterPort_P33 = 0x01,
-    PWMB_PWM7_AlterPort_P02 = 0x10,
-    PWMB_PWM7_AlterPort_P76 = 0x11,
+    PWMB_PWM7_AlterPort_P02 = 0x02,
+    PWMB_PWM7_AlterPort_P76 = 0x03,
 } PWMB_PWM7_AlterPort_t;
 
 typedef enum
 {
     PWMB_PWM8_AlterPort_P23 = 0x00,
     PWMB_PWM8_AlterPort_P34 = 0x01,
-    PWMB_PWM8_AlterPort_P03 = 0x10,
-    PWMB_PWM8_AlterPort_P77 = 0x11,
+    PWMB_PWM8_AlterPort_P03 = 0x02,
+    PWMB_PWM8_AlterPort_P77 = 0x03,
 } PWMB_PWM8_AlterPort_t;
 
 // Alternative port selection
